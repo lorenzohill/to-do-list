@@ -1,5 +1,9 @@
 import {  } from "./helperfunctions.js";
 import { card  } from "./taskcards.js";
+import {createProject} from "./tasks.js"
+import { test } from "./test.js";
+
+var projectArray = []
 
 export function homepage() {
   let screen = document.createElement("div")
@@ -27,11 +31,11 @@ export function homepage() {
   sidebar.appendChild(sidebarHeader)
   sidebarHeader.appendChild(projects)
 
-  let projectCard = document.createElement("div")
+  let projectCard = document.createElement("button")
   let projectTitle = document.createElement("p")
 
   projectCard.classList.add("project-card")
-  projectTitle.innerText = "Project 1"
+  projectTitle.innerText = "Add a New project"
 
   projectCard.appendChild(projectTitle)
 
@@ -41,4 +45,24 @@ export function homepage() {
   screen.appendChild(mainWindow)
   mainWindow.appendChild(header)
   mainWindow.appendChild(cardContainer)
+
+  let newProjectBtn = document.querySelector("button")
+  let testArray = []
+  newProjectBtn.addEventListener("click", function(){
+    console.log(projectArray.push(createProject()))
+    updatePage()
+
+  }) 
+}
+
+function updatePage() {
+
+  projectArray.forEach(element => {
+    let project = document.createElement("button")
+    project.classList.add("project-card")
+    project.innerText = element.title
+    let push = document.querySelector(".sidebar")
+    push.appendChild(project)
+  });
+
 }
