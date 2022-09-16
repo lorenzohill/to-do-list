@@ -5,13 +5,21 @@ import { test } from "./test.js";
 
 var projectArray = []
 
+let activeProject = null
+
+let screen = document.createElement("div")
+
+let sidebar = document.createElement("aside")
+let mainWindow = document.createElement("div")
+let header = document.createElement("header")
+let cardContainer = document.createElement("div")
+let projectContainer = document.createElement("div")
+
+let sidebarHeader = document.createElement("div")
+
+let headerText = document.createElement("h1")
+
 export function homepage() {
-  let screen = document.createElement("div")
-  
-  let sidebar = document.createElement("aside")
-  let mainWindow = document.createElement("div")
-  let header = document.createElement("header")
-  let cardContainer = document.createElement("div")
 
   screen.classList.add("screen")
 
@@ -22,14 +30,15 @@ export function homepage() {
 
   document.body.appendChild(screen)
 
-  let sidebarHeader = document.createElement("div")
   sidebarHeader.classList.add("sidebar-header")
+  headerText.classList.add("header-text")
 
   let projects = document.createElement("h1")
   projects.innerText = "Projects"
 
   sidebar.appendChild(sidebarHeader)
   sidebarHeader.appendChild(projects)
+  sidebar.appendChild(projectContainer)
 
   let projectCard = document.createElement("button")
   let projectTitle = document.createElement("p")
@@ -41,6 +50,9 @@ export function homepage() {
 
   sidebar.appendChild(projectCard)
   
+
+  header.appendChild(headerText)
+
   screen.appendChild(sidebar)
   screen.appendChild(mainWindow)
   mainWindow.appendChild(header)
@@ -51,18 +63,29 @@ export function homepage() {
   newProjectBtn.addEventListener("click", function(){
     console.log(projectArray.push(createProject()))
     updatePage()
+    console.log(activeProject)
+
 
   }) 
 }
 
 function updatePage() {
 
+  projectContainer.innerHTML = ""
+
   projectArray.forEach(element => {
     let project = document.createElement("button")
     project.classList.add("project-card")
     project.innerText = element.title
-    let push = document.querySelector(".sidebar")
-    push.appendChild(project)
+    project.addEventListener("click", function(){
+      changeProject(element)
+    })
+    projectContainer.appendChild(project)
   });
 
+}
+
+function changeProject(ele) {
+  headerText.innerText = ele.title
+  activeProject = ele.title
 }
