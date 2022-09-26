@@ -58,19 +58,17 @@ export function homepage() {
   mainWindow.appendChild(header)
   mainWindow.appendChild(cardContainer)
 
-  let newProjectBtn = document.querySelector("button")
+  let newProjectBtn = document.querySelector(".project-card")
   let testArray = []
   newProjectBtn.addEventListener("click", function(){
     projectArray.push(createProject())
     updatePage()
     console.log(activeProject)
 
-
   }) 
 }
 
 function updatePage() {
-
   projectContainer.innerHTML = ""
   cardContainer.innerHTML = ""
 
@@ -80,7 +78,10 @@ function updatePage() {
     project.classList.add("project-card")
     project.innerText = element.title
     project.addEventListener("click", function(){
-      header.innerHTML = ""
+      let clear = document.querySelector(".project-card-add")
+      if (clear) {
+        clear.remove() 
+      } 
       changeProject(element)
     })
     projectContainer.appendChild(project)
@@ -97,11 +98,9 @@ function changeProject(ele) {
     let task = createTask()
     cardContainer.appendChild(task) 
   })
-  addTaskBtn.classList.add("project-card")
+  addTaskBtn.classList.add("project-card-add")
   addTaskBtn.innerText = "Add A Task"
   header.appendChild(addTaskBtn)
-
-  projectArray.push(ele)
 }
 
 export {projectArray}

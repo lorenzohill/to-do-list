@@ -35,10 +35,13 @@
   width: 75%;
 }
 
-.project-header{
+.project-header {
   background-color: blueviolet;
   display: flex;
   height: 20%;
+  justify-content: space-between;
+  align-items: flex-end;
+  overflow-x: auto;
 }
 
 .card-container{
@@ -71,7 +74,14 @@
 }
 
 .project-card-add{
-  width: 40%;
-  height: 40%;
-  justify-self: flex-end;
+  align-self: center;
+  background-color: blanchedalmond;
+  width: 281px;
+  height: 54px;
+  border-radius: 10px;
+  margin-right: 5%;
+}
+
+.project-header h1{
+  margin-left: 5%;
 }
