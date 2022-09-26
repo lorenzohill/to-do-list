@@ -1,5 +1,5 @@
 import {  } from "./helperfunctions.js";
-import { card  } from "./taskcards.js";
+import { card, createTask} from "./taskcards.js";
 import {createProject} from "./tasks.js"
 import { test } from "./test.js";
 
@@ -61,7 +61,7 @@ export function homepage() {
   let newProjectBtn = document.querySelector("button")
   let testArray = []
   newProjectBtn.addEventListener("click", function(){
-    console.log(projectArray.push(createProject()))
+    projectArray.push(createProject())
     updatePage()
     console.log(activeProject)
 
@@ -72,12 +72,15 @@ export function homepage() {
 function updatePage() {
 
   projectContainer.innerHTML = ""
+  cardContainer.innerHTML = ""
+
 
   projectArray.forEach(element => {
     let project = document.createElement("button")
     project.classList.add("project-card")
     project.innerText = element.title
     project.addEventListener("click", function(){
+      header.innerHTML = ""
       changeProject(element)
     })
     projectContainer.appendChild(project)
@@ -88,4 +91,17 @@ function updatePage() {
 function changeProject(ele) {
   headerText.innerText = ele.title
   activeProject = ele.title
+  
+  let addTaskBtn = document.createElement("button")
+  addTaskBtn.addEventListener("click", function(){
+    let task = createTask()
+    cardContainer.appendChild(task) 
+  })
+  addTaskBtn.classList.add("project-card")
+  addTaskBtn.innerText = "Add A Task"
+  header.appendChild(addTaskBtn)
+
+  projectArray.push(ele)
 }
+
+export {projectArray}

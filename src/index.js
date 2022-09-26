@@ -1,6 +1,6 @@
 import  {test}  from "./test.js";
-import { homepage } from "./homepage.js";
-import { card, createCard  } from "./taskcards.js";
+import { homepage, projectArray } from "./homepage.js";
+import { card, createTask  } from "./taskcards.js";
 
 let defaultTitle = "Project 1"
 let defaultList =  new card("title", "description", "dueDate", "priority", "note", "tags")
@@ -13,3 +13,4 @@ let defaultList =  new card("title", "description", "dueDate", "priority", "note
 console.log(defaultList)
 
 homepage()
+

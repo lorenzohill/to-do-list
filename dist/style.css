@@ -37,6 +37,7 @@
 
 .project-header{
   background-color: blueviolet;
+  display: flex;
   height: 20%;
 }
 
@@ -61,4 +62,16 @@
 
 .header-text{
   font-size: 148px;
+}
+
+.task-card{
+  background-color: blueviolet;
+  width: 100px;
+  height: 100px;
+}
+
+.project-card-add{
+  width: 40%;
+  height: 40%;
+  justify-self: flex-end;
 }
