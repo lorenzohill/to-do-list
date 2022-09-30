@@ -59,7 +59,6 @@ export function homepage() {
   mainWindow.appendChild(cardContainer)
 
   let newProjectBtn = document.querySelector(".project-card")
-  let testArray = []
   newProjectBtn.addEventListener("click", function(){
     projectArray.push(createProject())
     updatePage()

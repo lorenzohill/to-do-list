@@ -7,7 +7,7 @@
 }
 
 .sidebar{
-  background-color: steelblue;
+  background-color: #D9D9D9;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@
 
 .sidebar-header{
   align-items: center;
-  background-color: darkkhaki;
+  background-color: #D9D9D9;
   display: flex;
   justify-content: center;
   height: 20%;
@@ -31,12 +31,12 @@
 }
 
 .main-window{
-  background-color: tomato;
+  background-color: #f5F5F5;
   width: 75%;
 }
 
 .project-header {
-  background-color: blueviolet;
+  background-color: #A8A8A8;
   display: flex;
   height: 20%;
   justify-content: space-between;
@@ -45,7 +45,10 @@
 }
 
 .card-container{
-  background-color: lawngreen;
+  display: grid;
+  grid-template-columns: 20rem, 20rem, 20rem;
+  grid-template-rows: 20rem, 20rem, 20rem;
+
   height: 80%;
 }
 .project-card{
@@ -84,4 +87,18 @@
 
 .project-header h1{
   margin-left: 5%;
+}
+
+.task-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+
+  margin: 16px;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  width: 20rem;
+  height: 12rem;
 }

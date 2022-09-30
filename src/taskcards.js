@@ -16,7 +16,7 @@ export function createTask() {
   let note = prompt("note")
 
   let newCard = document.createElement("div")
-  newCard.classList.add("Task-Card")
+  newCard.classList.add("task-card")
 
   let titleText = document.createElement("h2")
   let descriptionText = document.createElement("p")
